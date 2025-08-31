@@ -1,7 +1,6 @@
 # Jekyll 설정
-theme: jekyll-theme-minimal
-title: 배성식 - Game Developer
-description: 게임 개발자 포트폴리오 및 기술 블로그
+title: 배성식 - 기술 블로그
+description: 게임 클라이언트 개발자 기술 블로그
 
 # 마크다운 설정
 markdown: kramdown

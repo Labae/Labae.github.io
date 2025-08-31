@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - 배성식 Blog</title>
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
     <style>
         * {
             margin: 0;
@@ -12,12 +16,13 @@
         }
 
         :root {
-            --primary: #00ffcc;
-            --secondary: #ff00ff;
+            --primary: #60a5fa;  /* 밝은 파란색 - 더 읽기 쉬움 */
+            --secondary: #a78bfa;  /* 보라색 - 부드러운 대비 */
+            --accent: #fbbf24;  /* 노란색 - 강조용 */
             --bg-dark: #0a0a0a;
             --bg-card: #1a1a1a;
             --text: #ffffff;
-            --text-dim: #888888;
+            --text-dim: #9ca3af;
             --code-bg: #1e1e1e;
         }
 
@@ -32,7 +37,7 @@
         .header {
             background: rgba(10, 10, 10, 0.95);
             padding: 20px;
-            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
             margin-bottom: 40px;
         }
 
@@ -48,6 +53,11 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--secondary);
         }
 
         /* 콘텐츠 */
@@ -80,7 +90,7 @@
             color: var(--primary);
             margin: 30px 0 15px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+            border-bottom: 1px solid rgba(96, 165, 250, 0.3);
         }
 
         h3 {
@@ -98,32 +108,53 @@
         }
 
         a:hover {
+            color: var(--secondary);
             text-decoration: underline;
         }
 
-        /* 코드 블록 */
+        /* 인라인 코드 */
+        p code, li code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: rgba(96, 165, 250, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-size: 0.9em;
+        }
+
+        /* 코드 블록 - Prism 오버라이드 */
+        pre[class*="language-"],
         pre {
-            background: var(--code-bg);
+            background: #1e1e1e !important;
             padding: 20px;
             border-radius: 10px;
             overflow-x: auto;
             margin: 20px 0;
-            border: 1px solid rgba(0, 255, 204, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.2);
         }
 
-        code {
-            font-family: 'Consolas', 'Monaco', monospace;
-            background: var(--code-bg);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--primary);
-        }
-
+        code[class*="language-"],
         pre code {
-            background: none;
-            padding: 0;
-            color: var(--text);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+            background: none !important;
+            color: #d4d4d4 !important;
+            text-shadow: none !important;
+            font-size: 14px;
+            line-height: 1.5;
         }
+
+        /* 신택스 하이라이팅 색상 */
+        .token.comment { color: #6a9955 !important; }
+        .token.keyword { color: #569cd6 !important; }
+        .token.string { color: #ce9178 !important; }
+        .token.function { color: #dcdcaa !important; }
+        .token.number { color: #b5cea8 !important; }
+        .token.operator { color: #d4d4d4 !important; }
+        .token.class-name { color: #4ec9b0 !important; }
+        .token.punctuation { color: #d4d4d4 !important; }
+        .token.boolean { color: #569cd6 !important; }
+        .token.property { color: #9cdcfe !important; }
 
         /* 테이블 */
         table {
@@ -152,6 +183,10 @@
             margin-bottom: 8px;
         }
 
+        li::marker {
+            color: var(--primary);
+        }
+
         /* 인용구 */
         blockquote {
             border-left: 4px solid var(--primary);
@@ -159,6 +194,9 @@
             margin: 20px 0;
             color: var(--text-dim);
             font-style: italic;
+            background: rgba(96, 165, 250, 0.05);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
         }
 
         /* 댓글 섹션 */
@@ -170,14 +208,17 @@
 
         /* 스크롤바 */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
             background: var(--bg-dark);
         }
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
-            border-radius: 4px;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
         }
     </style>
 </head>
@@ -211,5 +252,16 @@
             </script>
         </div>
     </article>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script>
+        // Prism.js 강제 적용
+        document.addEventListener('DOMContentLoaded', function() {
+            Prism.highlightAll();
+        });
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unity 모바일 게임 최적화 완벽 가이드"
+title: "Unity 모바일 게임 최적화 완벽 가이드(테스트 문서)"
 date: 2024-01-15
 categories: [Unity, Optimization, Mobile]
 ---

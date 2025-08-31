@@ -1,0 +1,9 @@
+theme: jekyll-theme-minimal
+title: 배성식 Game Dev Blog
+description: 게임 개발 경험과 기술 공유
+
+# 마크다운 설정
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

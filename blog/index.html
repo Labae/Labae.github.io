@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배성식 - Game Dev Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text: #ffffff;
+            --text-dim: #888888;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* 스크롤바 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* 헤더 */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-title {
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* 메인 컨텐츠 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-intro h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-intro p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+        }
+
+        /* 블로그 포스트 리스트 */
+        .blog-posts {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .post-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .post-card:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.1);
+        }
+
+        .post-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .post-excerpt {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .post-card:hover .read-more {
+            gap: 10px;
+        }
+
+        /* 카테고리 필터 */
+        .category-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid #333;
+            border-radius: 20px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .page-intro h1 {
+                font-size: 2rem;
+            }
+
+            .post-title {
+                font-size: 1.4rem;
+            }
+
+            .post-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/blog" class="blog-title">Game Dev Blog</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Portfolio</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="https://github.com/Labae">GitHub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-intro">
+            <h1>Game Development Blog</h1>
+            <p>게임 개발 경험과 기술적 인사이트를 공유합니다</p>
+        </div>
+
+        <!-- 카테고리 필터 -->
+        <div class="category-filter">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Unity</button>
+            <button class="category-btn">C++</button>
+            <button class="category-btn">Graphics</button>
+            <button class="category-btn">Optimization</button>
+            <button class="category-btn">Game Design</button>
+        </div>
+
+        <!-- 블로그 포스트 리스트 -->
+        <div class="blog-posts">
+            
+            <!-- 포스트 1 -->
+            <a href="/blog/unity-optimization-tips.html" class="post-card">
+                <div class="post-date">2024.01.15</div>
+                <h2 class="post-title">Unity 모바일 게임 최적화 완벽 가이드</h2>
+                <div class="post-tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">Optimization</span>
+                    <span class="tag">Mobile</span>
+                </div>
+                <p class="post-excerpt">
+                    모바일 게임에서 60fps를 유지하면서도 배터리 소모를 줄이는 방법을 소개합니다. 
+                    Draw Call 배칭, 텍스처 압축, LOD 시스템 구현 등 실제 프로젝트에서 적용한 
+                    최적화 기법들을 상세히 다룹니다.
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
+            <!-- 포스트 2 -->
+            <a href="/blog/photon-multiplayer.html" class="post-card">
+                <div class="post-date">2024.01.10</div>
+                <h2 class="post-title">Photon PUN2로 멀티플레이어 게임 만들기</h2>
+                <div class="post-tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">Photon</span>
+                    <span class="tag">Networking</span>
+                </div>
+                <p class="post-excerpt">
+                    Witch One 프로젝트에서 Photon PUN2를 활용하여 실시간 멀티플레이어 
+                    시스템을 구현한 경험을 공유합니다. 네트워크 동기화, 렉 보정, 
+                    그리고 치팅 방지 시스템 구현까지 다룹니다.
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
+            <!-- 포스트 3 -->
+            <a href="/blog/ecs-pattern-game.html" class="post-card">
+                <div class="post-date">2024.01.05</div>
+                <h2 class="post-title">ECS 패턴으로 게임 아키텍처 설계하기</h2>
+                <div class="post-tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Architecture</span>
+                    <span class="tag">ECS</span>
+                </div>
+                <p class="post-excerpt">
+                    Entity Component System 패턴을 활용하여 유연하고 확장 가능한 
+                    게임 아키텍처를 설계하는 방법을 소개합니다. entt 라이브러리를 
+                    사용한 실제 구현 예제와 성능 비교를 포함합니다.
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
+            <!-- 포스트 4 -->
+            <a href="/blog/vr-flight-game.html" class="post-card">
+                <div class="post-date">2023.12.28</div>
+                <h2 class="post-title">VR 플라이트 슈팅 게임 개발기</h2>
+                <div class="post-tags">
+                    <span class="tag">Unity</span>
+                    <span class="tag">VR</span>
+                    <span class="tag">OpenXR</span>
+                </div>
+                <p class="post-excerpt">
+                    Stars of Prey VR 게임 개발 과정에서 겪은 도전과 해결 방법을 공유합니다. 
+                    VR 멀미 최소화, Boids 알고리즘을 활용한 AI 편대 비행, 
+                    그리고 OpenXR 통합 과정을 다룹니다.
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
+            <!-- 포스트 5 -->
+            <a href="/blog/game-ai-fsm.html" class="post-card">
+                <div class="post-date">2023.12.20</div>
+                <h2 class="post-title">게임 AI를 위한 FSM 설계 패턴</h2>
+                <div class="post-tags">
+                    <span class="tag">Game Design</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">C#</span>
+                </div>
+                <p class="post-excerpt">
+                    Finite State Machine을 활용한 게임 AI 구현 방법을 소개합니다. 
+                    보스 몬스터의 복잡한 패턴을 JSON으로 관리하고, 
+                    유연한 상태 전환을 구현하는 방법을 실제 코드와 함께 설명합니다.
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 배성식. Built with passion for game development.</p>
+    </footer>
+
+    <script>
+        // 카테고리 필터 기능
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const posts = document.querySelectorAll('.post-card');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 활성 버튼 변경
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.textContent.toLowerCase();
+
+                // 포스트 필터링
+                posts.forEach(post => {
+                    if (category === 'all') {
+                        post.style.display = 'block';
+                    } else {
+                        const tags = post.querySelectorAll('.tag');
+                        const hasTag = Array.from(tags).some(tag => 
+                            tag.textContent.toLowerCase() === category
+                        );
+                        post.style.display = hasTag ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,9 +1,19 @@
+# Jekyll 설정
 theme: jekyll-theme-minimal
-title: 배성식 Game Dev Blog
-description: 게임 개발 경험과 기술 공유
+title: 배성식 - Game Developer
+description: 게임 개발자 포트폴리오 및 기술 블로그
 
 # 마크다운 설정
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+# 플러그인
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 기본 설정
+timezone: Asia/Seoul
+encoding: utf-8

@@ -16,3 +16,6 @@ plugins:
 # 기본 설정
 timezone: Asia/Seoul
 encoding: utf-8
+
+# 이 부분 추가 시도
+layouts_dir: _layouts

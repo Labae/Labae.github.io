@@ -73,6 +73,12 @@
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -502,9 +508,9 @@
     <!-- 네비게이션 -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">배성식</div>
+            <a href="#home" class="logo" style="text-decoration: none;">배성식 포트폴리오</a>
+
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#blog">Blog</a></li>
@@ -515,28 +521,38 @@
     </nav>
 
     <!-- 히어로 섹션 -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>배성식</h1>
-            <div class="title">Game Client Developer</div>
+    <!-- 히어로 섹션 -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>배성식</h1>
+        <div class="title">Game Client Developer</div>
 
-            <!-- TODO: 주요 기술 스택 변경 -->
-            <div class="tech-stack">
-                <span class="tech-badge">Unity</span>
-                <span class="tech-badge">C++</span>
-                <span class="tech-badge">C#</span>
-            </div>
-
-            <!-- 자기소개 추가 -->
-            <div class="intro">
-                <p>
-                    게임 개발에 열정을 가진 클라이언트 개발자입니다.<br>
-                    최적화된 게임플레이 경험과 몰입감 있는 인터랙션 구현을 추구합니다.<br>
-                    플레이어가 즐거움을 느낄 수 있는 게임을 만들기 위해 노력하고 있습니다.
-                </p>
-            </div>
+        <div class="tech-stack">
+            <span class="tech-badge">Unity</span>
+            <span class="tech-badge">C++</span>
+            <span class="tech-badge">C#</span>
         </div>
-    </section>
+
+        <!-- 자기소개 -->
+        <div class="intro">
+            <p>
+                게임 개발에 열정을 가진 클라이언트 개발자입니다.<br>
+                최적화된 게임플레이 경험과 몰입감 있는 인터랙션 구현을 추구합니다.<br>
+                플레이어가 즐거움을 느낄 수 있는 게임을 만들기 위해 노력하고 있습니다.
+            </p>
+        </div>
+
+        <!-- 다운로드 버튼 추가 -->
+        <div class="cta-buttons" style="margin-top: 30px;">
+            <a href="assets/portfolio.pdf" download="배성식_포트폴리오.pdf" class="btn">
+                📥 Download Portfolio
+            </a>
+            <a href="https://github.com/Labae" target="_blank" class="btn btn-outline">
+                💻 GitHub
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- 프로젝트 섹션 -->
     <section class="projects" id="projects">

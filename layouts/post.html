@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - 배성식 Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ffcc;
+            --secondary: #ff00ff;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text: #ffffff;
+            --text-dim: #888888;
+            --code-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* 헤더 */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .nav {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 콘텐츠 */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .post-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .post-meta {
+            color: var(--text-dim);
+        }
+
+        /* 마크다운 스타일 */
+        h2 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+        }
+
+        h3 {
+            color: var(--text);
+            margin: 25px 0 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 코드 블록 */
+        pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--primary);
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: var(--text);
+        }
+
+        /* 테이블 */
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: var(--bg-card);
+            color: var(--primary);
+        }
+
+        /* 리스트 */
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 인용구 */
+        blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        /* 댓글 섹션 */
+        .comments {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 스크롤바 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/">← Portfolio</a>
+            <a href="/blog">Blog Home</a>
+        </nav>
+    </header>
+
+    <article class="content">
+        <div class="post-header">
+            <h1>{{ page.title }}</h1>
+            <div class="post-meta">
+                {{ page.date | date: "%Y.%m.%d" }} | {{ page.categories | join: ", " }}
+            </div>
+        </div>
+
+        {{ content }}
+
+        <!-- 댓글 -->
+        <div class="comments">
+            <h2 style="margin-bottom: 20px;">💬 Comments</h2>
+            <script src="https://utteranc.es/client.js"
+                    repo="Labae/Labae.github.io"
+                    issue-term="pathname"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </article>
+</body>
+</html>

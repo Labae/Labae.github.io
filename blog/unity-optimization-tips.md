@@ -1,7 +1,8 @@
-# Unity 모바일 게임 최적화 완벽 가이드
-
-*2024.01.15 | Unity, Optimization, Mobile*
-
+---
+layout: post
+title: "Unity 모바일 게임 최적화 완벽 가이드"
+date: 2024-01-15
+categories: [Unity, Optimization, Mobile]
 ---
 
 모바일 게임 개발에서 가장 중요한 것 중 하나는 **성능 최적화**입니다. 
@@ -261,8 +262,8 @@ Witch One 프로젝트에 이러한 최적화 기법들을 적용한 결과:
 
 ### 📚 참고 자료
 - [Unity Mobile Optimization Guide](https://docs.unity3d.com/Manual/MobileOptimization.html)
-- [ARM Mobile Studio](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio)
+- [ARM Mobile Studio](https://developer.arm.com/tools-anmdd-software/graphics-and-gaming/arm-mobile-studio)
 - [Unity Profiler Documentation](https://docs.unity3d.com/Manual/Profiler.html)
 
 ### 💬 댓글
-질문이나 추가 팁이 있다면 [GitHub Issues](https://github.com/Labae/blog/issues)에 남겨주세요!
+질문이나 추가 팁이 있다면 아래 댓글로 남겨주세요!

@@ -854,10 +854,29 @@
         <p style="color: var(--text-dim); margin-top: 20px;">
             게임 개발에 대한 열정을 함께 나누고 싶습니다!
         </p>
-        <div class="contact-links">
-            <!-- TODO: 실제 연락처로 변경 -->
-            <a href="mailto:rabae0985@gmail.com" class="contact-link">📧 Email</a>
-            <a href="https://www.linkedin.com/in/sungsik-bae-868281244/" class="contact-link">💼 LinkedIn</a>
+
+        <!-- 이메일 폼 추가 -->
+        <form action="https://formspree.io/f/mvgbrzba" method="POST" style="max-width: 500px; margin: 40px auto;">
+            <input type="text" name="name" placeholder="이름" required style="width: 100%; padding: 15px; margin-bottom: 15px; 
+                      background: var(--bg-dark); border: 1px solid #333; 
+                      border-radius: 10px; color: var(--text);">
+
+            <input type="email" name="_replyto" placeholder="이메일" required style="width: 100%; padding: 15px; margin-bottom: 15px; 
+                      background: var(--bg-dark); border: 1px solid #333; 
+                      border-radius: 10px; color: var(--text);">
+
+            <textarea name="message" placeholder="메시지를 입력하세요" rows="5" required style="width: 100%; padding: 15px; margin-bottom: 20px; 
+                         background: var(--bg-dark); border: 1px solid #333; 
+                         border-radius: 10px; color: var(--text); resize: vertical;"></textarea>
+
+            <button type="submit" class="btn" style="width: 100%; cursor: pointer;">
+                Send Message
+            </button>
+        </form>
+
+        <!-- 기존 링크들 -->
+        <div class="contact-links" style="margin-top: 40px;">
+            <a href="https://linkedin.com/in/sungsik-bae-868281244/" class="contact-link">💼 LinkedIn</a>
             <a href="https://github.com/Labae" class="contact-link">💻 GitHub</a>
         </div>
     </section>

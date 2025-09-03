@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,9 +32,11 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-dark);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 4px;
@@ -234,6 +237,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -266,10 +270,39 @@
 
         <!-- 블로그 포스트 리스트 -->
         <div class="blog-posts">
-            
+
+            <!-- 새 포스트 템플릿
+            <a href="/blog/POST-URL" class="post-card">
+                <div class="post-date">DATE</div>
+                <h2 class="post-title">TITLE</h2>
+                <div class="post-tags">
+                    <span class="tag">TAG1</span>
+                </div>
+                <p class="post-excerpt">EXCERPT</p>
+                <span class="read-more">Read more →</span>
+            </a> 
+            -->
+
+            <!-- 포스트 1 -->
+            <a href="/blog/2025-09-03-boj-2745.html" class="post-card">
+                <div class="post-date">2025.09.03</div>
+                <h2 class="post-title">[백준] 2745 - 진법 변환</h2>
+                <div class="post-tags">
+                    <span class="tag">PS</span>
+                    <span class="tag">백준</span>
+                    <span class="tag">C++</span>
+                </div>
+                <p class="post-excerpt">
+                    B진법 수 N이 주어진다. 이 수를 10진법으로 바꿔 출력하는 프로그램을 작성하시오.
+                    10진법을 넘어가는 진법은 숫자로 표시할 수 없는 자리가 있다. 이런 경우에는 다음과 같이 알파벳 대문자를 사용한다.
+                    A: 10, B: 11, ..., F: 15, ..., Y: 34, Z: 35
+                </p>
+                <span class="read-more">Read more →</span>
+            </a>
+
             <!-- 포스트 1 -->
             <a href="/blog/unity-optimization-tips.html" class="post-card">
-                <div class="post-date">2024.01.15</div>
+                <div class="post-date">2025.09.01</div>
                 <h2 class="post-title">Unity 모바일 게임 최적화 완벽 가이드</h2>
                 <div class="post-tags">
                     <span class="tag">Unity</span>
@@ -277,81 +310,12 @@
                     <span class="tag">Mobile</span>
                 </div>
                 <p class="post-excerpt">
-                    모바일 게임에서 60fps를 유지하면서도 배터리 소모를 줄이는 방법을 소개합니다. 
-                    Draw Call 배칭, 텍스처 압축, LOD 시스템 구현 등 실제 프로젝트에서 적용한 
+                    모바일 게임에서 60fps를 유지하면서도 배터리 소모를 줄이는 방법을 소개합니다.
+                    Draw Call 배칭, 텍스처 압축, LOD 시스템 구현 등 실제 프로젝트에서 적용한
                     최적화 기법들을 상세히 다룹니다.
                 </p>
                 <span class="read-more">Read more →</span>
             </a>
-
-            <!-- 포스트 2 -->
-            <a href="/blog/photon-multiplayer.html" class="post-card">
-                <div class="post-date">2024.01.10</div>
-                <h2 class="post-title">Photon PUN2로 멀티플레이어 게임 만들기</h2>
-                <div class="post-tags">
-                    <span class="tag">Unity</span>
-                    <span class="tag">Photon</span>
-                    <span class="tag">Networking</span>
-                </div>
-                <p class="post-excerpt">
-                    Witch One 프로젝트에서 Photon PUN2를 활용하여 실시간 멀티플레이어 
-                    시스템을 구현한 경험을 공유합니다. 네트워크 동기화, 렉 보정, 
-                    그리고 치팅 방지 시스템 구현까지 다룹니다.
-                </p>
-                <span class="read-more">Read more →</span>
-            </a>
-
-            <!-- 포스트 3 -->
-            <a href="/blog/ecs-pattern-game.html" class="post-card">
-                <div class="post-date">2024.01.05</div>
-                <h2 class="post-title">ECS 패턴으로 게임 아키텍처 설계하기</h2>
-                <div class="post-tags">
-                    <span class="tag">C++</span>
-                    <span class="tag">Architecture</span>
-                    <span class="tag">ECS</span>
-                </div>
-                <p class="post-excerpt">
-                    Entity Component System 패턴을 활용하여 유연하고 확장 가능한 
-                    게임 아키텍처를 설계하는 방법을 소개합니다. entt 라이브러리를 
-                    사용한 실제 구현 예제와 성능 비교를 포함합니다.
-                </p>
-                <span class="read-more">Read more →</span>
-            </a>
-
-            <!-- 포스트 4 -->
-            <a href="/blog/vr-flight-game.html" class="post-card">
-                <div class="post-date">2023.12.28</div>
-                <h2 class="post-title">VR 플라이트 슈팅 게임 개발기</h2>
-                <div class="post-tags">
-                    <span class="tag">Unity</span>
-                    <span class="tag">VR</span>
-                    <span class="tag">OpenXR</span>
-                </div>
-                <p class="post-excerpt">
-                    Stars of Prey VR 게임 개발 과정에서 겪은 도전과 해결 방법을 공유합니다. 
-                    VR 멀미 최소화, Boids 알고리즘을 활용한 AI 편대 비행, 
-                    그리고 OpenXR 통합 과정을 다룹니다.
-                </p>
-                <span class="read-more">Read more →</span>
-            </a>
-
-            <!-- 포스트 5 -->
-            <a href="/blog/game-ai-fsm.html" class="post-card">
-                <div class="post-date">2023.12.20</div>
-                <h2 class="post-title">게임 AI를 위한 FSM 설계 패턴</h2>
-                <div class="post-tags">
-                    <span class="tag">Game Design</span>
-                    <span class="tag">AI</span>
-                    <span class="tag">C#</span>
-                </div>
-                <p class="post-excerpt">
-                    Finite State Machine을 활용한 게임 AI 구현 방법을 소개합니다. 
-                    보스 몬스터의 복잡한 패턴을 JSON으로 관리하고, 
-                    유연한 상태 전환을 구현하는 방법을 실제 코드와 함께 설명합니다.
-                </p>
-                <span class="read-more">Read more →</span>
-            </a>
-
         </div>
     </main>
 
@@ -378,7 +342,7 @@
                         post.style.display = 'block';
                     } else {
                         const tags = post.querySelectorAll('.tag');
-                        const hasTag = Array.from(tags).some(tag => 
+                        const hasTag = Array.from(tags).some(tag =>
                             tag.textContent.toLowerCase() === category
                         );
                         post.style.display = hasTag ? 'block' : 'none';
@@ -388,4 +352,5 @@
         });
     </script>
 </body>
+
 </html>

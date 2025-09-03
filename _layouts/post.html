@@ -16,9 +16,9 @@
         }
 
         :root {
-            --primary: #60a5fa;  /* 밝은 파란색 - 더 읽기 쉬움 */
-            --secondary: #a78bfa;  /* 보라색 - 부드러운 대비 */
-            --accent: #fbbf24;  /* 노란색 - 강조용 */
+            --primary: #60a5fa;
+            --secondary: #a78bfa;
+            --accent: #fbbf24;
             --bg-dark: #0a0a0a;
             --bg-card: #1a1a1a;
             --text: #ffffff;
@@ -123,7 +123,7 @@
             font-size: 0.9em;
         }
 
-        /* 코드 블록 - Prism 오버라이드 */
+        /* 코드 블록 */
         pre[class*="language-"],
         pre {
             background: #1e1e1e !important;
@@ -155,23 +155,40 @@
         .token.punctuation { color: #d4d4d4 !important; }
         .token.boolean { color: #569cd6 !important; }
         .token.property { color: #9cdcfe !important; }
+        .token.directive { color: #569cd6 !important; }
+        .token.namespace { color: #4ec9b0 !important; }
 
-        /* 테이블 */
+        /* 테이블 스타일 개선 */
         table {
             width: 100%;
-            margin: 20px 0;
+            margin: 25px 0;
             border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         th, td {
-            padding: 12px;
+            padding: 12px 15px;
             text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         th {
-            background: var(--bg-card);
+            background: rgba(96, 165, 250, 0.15);
             color: var(--primary);
+            font-weight: 600;
+            border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(96, 165, 250, 0.05);
+            transition: background 0.2s;
         }
 
         /* 리스트 */
@@ -255,11 +272,29 @@
 
     <!-- Prism.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    
     <script>
-        // Prism.js 강제 적용
         document.addEventListener('DOMContentLoaded', function() {
+            // 모든 pre code 블록 처리
+            document.querySelectorAll('pre code').forEach((block) => {
+                const pre = block.parentElement;
+                const classes = block.className.split(' ');
+                
+                // language-cpp 클래스 찾기
+                classes.forEach(cls => {
+                    if (cls.startsWith('language-')) {
+                        pre.classList.add(cls);
+                    }
+                });
+                
+                // Prism 적용
+                Prism.highlightElement(block);
+            });
+            
+            // 이미 Prism 클래스가 있는 경우
             Prism.highlightAll();
         });
     </script>

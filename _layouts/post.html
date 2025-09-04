@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - 배성식 Blog</title>
-    
+
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    
+
     <style>
         * {
             margin: 0;
@@ -113,7 +114,8 @@
         }
 
         /* 인라인 코드 */
-        p code, li code {
+        p code,
+        li code {
             font-family: 'Consolas', 'Monaco', monospace;
             background: rgba(96, 165, 250, 0.1);
             border: 1px solid rgba(96, 165, 250, 0.2);
@@ -145,18 +147,53 @@
         }
 
         /* 신택스 하이라이팅 색상 */
-        .token.comment { color: #6a9955 !important; }
-        .token.keyword { color: #569cd6 !important; }
-        .token.string { color: #ce9178 !important; }
-        .token.function { color: #dcdcaa !important; }
-        .token.number { color: #b5cea8 !important; }
-        .token.operator { color: #d4d4d4 !important; }
-        .token.class-name { color: #4ec9b0 !important; }
-        .token.punctuation { color: #d4d4d4 !important; }
-        .token.boolean { color: #569cd6 !important; }
-        .token.property { color: #9cdcfe !important; }
-        .token.directive { color: #569cd6 !important; }
-        .token.namespace { color: #4ec9b0 !important; }
+        .token.comment {
+            color: #6a9955 !important;
+        }
+
+        .token.keyword {
+            color: #569cd6 !important;
+        }
+
+        .token.string {
+            color: #ce9178 !important;
+        }
+
+        .token.function {
+            color: #dcdcaa !important;
+        }
+
+        .token.number {
+            color: #b5cea8 !important;
+        }
+
+        .token.operator {
+            color: #d4d4d4 !important;
+        }
+
+        .token.class-name {
+            color: #4ec9b0 !important;
+        }
+
+        .token.punctuation {
+            color: #d4d4d4 !important;
+        }
+
+        .token.boolean {
+            color: #569cd6 !important;
+        }
+
+        .token.property {
+            color: #9cdcfe !important;
+        }
+
+        .token.directive {
+            color: #569cd6 !important;
+        }
+
+        .token.namespace {
+            color: #4ec9b0 !important;
+        }
 
         /* 테이블 스타일 개선 */
         table {
@@ -169,7 +206,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -192,7 +230,8 @@
         }
 
         /* 리스트 */
-        ul, ol {
+        ul,
+        ol {
             margin: 15px 0 15px 30px;
         }
 
@@ -227,18 +266,22 @@
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-dark);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary);
         }
     </style>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
@@ -260,43 +303,52 @@
         <!-- 댓글 -->
         <div class="comments">
             <h2 style="margin-bottom: 20px;">💬 Comments</h2>
-            <script src="https://utteranc.es/client.js"
-                    repo="Labae/Labae.github.io"
-                    issue-term="pathname"
-                    theme="github-dark"
-                    crossorigin="anonymous"
-                    async>
-            </script>
+            <script src="https://utteranc.es/client.js" repo="Labae/Labae.github.io" issue-term="pathname"
+                theme="github-dark" crossorigin="anonymous" async>
+                </script>
         </div>
     </article>
 
+    <!-- 전체 스크립트 섹션 교체 -->
     <!-- Prism.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-glsl.min.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 모든 pre code 블록 처리
-            document.querySelectorAll('pre code').forEach((block) => {
-                const pre = block.parentElement;
-                const classes = block.className.split(' ');
-                
-                // language-cpp 클래스 찾기
-                classes.forEach(cls => {
-                    if (cls.startsWith('language-')) {
-                        pre.classList.add(cls);
+        document.addEventListener('DOMContentLoaded', function () {
+            // Jekyll이 생성한 코드 블록 처리
+            document.querySelectorAll('div.highlighter-rouge').forEach((wrapper) => {
+                const pre = wrapper.querySelector('pre');
+                const code = wrapper.querySelector('code');
+
+                if (wrapper.className.includes('language-')) {
+                    const lang = wrapper.className.match(/language-(\w+)/)?.[1];
+                    if (lang) {
+                        pre?.classList.add(`language-${lang}`);
+                        code?.classList.add(`language-${lang}`);
                     }
-                });
-                
-                // Prism 적용
-                Prism.highlightElement(block);
+                }
             });
-            
-            // 이미 Prism 클래스가 있는 경우
+
+            // 일반 pre code 블록 처리
+            document.querySelectorAll('pre code').forEach((code) => {
+                const pre = code.parentElement;
+                const className = code.className;
+
+                if (className && className.includes('language-')) {
+                    pre.className = className;
+                }
+            });
+
+            // Prism 적용
             Prism.highlightAll();
         });
     </script>
 </body>
+
 </html>

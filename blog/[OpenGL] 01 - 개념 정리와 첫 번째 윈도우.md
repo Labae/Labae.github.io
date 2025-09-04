@@ -12,7 +12,7 @@ tags: [cpp, opengl, graphics, rendering]
 <img src="https://img.shields.io/badge/플랫폼-macOS-black?style=flat-square" alt="macOS" />
 <img src="https://img.shields.io/badge/IDE-CLion-00ACC1?style=flat-square" alt="CLion" />
 <img src="https://img.shields.io/badge/OpenGL-3.3+-5586A4?style=flat-square" alt="OpenGL" />
-<img src="https://img.shields.io/badge/C++-20-00599C?style=flat-square" alt="C++20" />
+<img src="https://img.shields.io/badge/C++-23-00599C?style=flat-square" alt="C++23" />
 </div>
 
 **시리즈 목표:** 볼류메트릭 클라우드 + 대기 산란 렌더링  

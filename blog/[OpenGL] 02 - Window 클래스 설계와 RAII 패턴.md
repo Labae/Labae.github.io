@@ -16,7 +16,7 @@ tags: [cpp, opengl, graphics, rendering]
 
 <img src="https://img.shields.io/badge/OpenGL-3.3+-5586A4?style=flat-square" alt="OpenGL" />
 
-<img src="https://img.shields.io/badge/C++-20-00599C?style=flat-square" alt="C++20" />
+<img src="https://img.shields.io/badge/C++-23-00599C?style=flat-square" alt="C++23" />
 
 </div>
 

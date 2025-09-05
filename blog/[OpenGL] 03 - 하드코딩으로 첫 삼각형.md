@@ -541,7 +541,7 @@ void handleKeyPress(const int key) {
 - FPS 콘솔 출력
 
 <video width="100%" controls>
-  <source src="/assets/videos/first-triangle-demo.mp4" type="video/mp4">
+  <source src="/assets/videos/OpenGL/First Triangle.mp4" type="video/mp4">
   첫 삼각형 렌더링 데모
 </video>
 

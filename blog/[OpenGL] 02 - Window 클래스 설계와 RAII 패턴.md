@@ -522,12 +522,9 @@ int main() {
 - I: 정보 출력
 - FPS 콘솔 출력
 
-<details>
-<summary>전체 데모 영상 보기</summary>
 <video width="100%" controls>
   <source src="/assets/videos/OpenGL/Window RAII.mp4" type="video/mp4">
 </video>
-</details>
 
 ## 🔑 핵심 개념 설명
 

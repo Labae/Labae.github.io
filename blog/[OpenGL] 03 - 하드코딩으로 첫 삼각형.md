@@ -15,7 +15,7 @@ tags: [cpp, opengl, graphics, rendering, vbo, vao, shader]
 <img src="https://img.shields.io/badge/C++-23-00599C?style=flat-square" alt="C++23" />
 </div>
 
-- 이전 포스트: [02 Window 클래스 설계와 RAII 패턴](/blog/opengl-02-window-class-raii.html)
+- 이전 포스트: [02 Window 클래스 설계와 RAII 패턴](/blog/[OpenGL]%2002%20-%20Window%20클래스%20설계와%20RAII%20패턴.html)
 - **현재 단계: 하드코딩으로 첫 삼각형 그리기**
 - 다음 포스트: 04 Shader 클래스 설계
 
@@ -541,7 +541,7 @@ void handleKeyPress(const int key) {
 - FPS 콘솔 출력
 
 <video width="100%" controls>
-  <source src="/assets/videos/OpenGL/First Triangle.mp4" type="video/mp4">
+  <source src="/assets/videos/OpenGL/first-triangle.mp4" type="video/mp4">
   첫 삼각형 렌더링 데모
 </video>
 

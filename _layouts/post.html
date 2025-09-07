@@ -8,6 +8,9 @@
 
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 
     <style>
         * {
@@ -347,6 +350,33 @@
 
             // Prism 적용
             Prism.highlightAll();
+        });
+    </script>
+
+    <!-- KaTeX JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+
+    <!-- Auto-render extension -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+
+    <!-- KaTeX 자동 렌더링 설정 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // 구분자 설정
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },   // 블록 수식
+                    { left: '$', right: '$', display: false },     // 인라인 수식
+                    { left: '\\[', right: '\\]', display: true },  // 블록 수식 (LaTeX 스타일)
+                    { left: '\\(', right: '\\)', display: false }  // 인라인 수식 (LaTeX 스타일)
+                ],
+                // 에러 처리
+                throwOnError: false
+            });
         });
     </script>
 </body>

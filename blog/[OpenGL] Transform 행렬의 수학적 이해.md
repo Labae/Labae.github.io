@@ -118,6 +118,11 @@ $$
 
 변환 순서에 따라 결과가 완전히 달라집니다:
 
+<video width="100%" controls>
+  <source src="/assets/videos/OpenGL/trs-srt.mp4" type="video/mp4">
+  TRS SRT 비교 영상
+</video>
+
 #### TRS 순서 (올바른 순서)
 $$
 M = T \cdot R \cdot S

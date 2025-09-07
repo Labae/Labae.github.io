@@ -28,6 +28,8 @@ tags: [cpp, opengl, graphics, transform, glm, 2d, matrix, mesh]
 ### Translation, Rotation, Scale
 
 모든 2D 변환은 세 가지 기본 변환의 조합입니다:
+[더 자세한 내용은...](/blog/[OpenGL]%20Transform%20행렬의%20수학적%20이해.html)
+
 
 ```
 원본 도형 → Scale(크기) → Rotation(회전) → Translation(이동) → 최종 결과
